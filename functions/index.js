@@ -14,12 +14,26 @@ const NAME_ACTION = 'welcome';
 
 
 exports.wegmans = functions.https.onRequest((request, response) => {
-  const authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ino0NHdNZEh1OHdLc3VtcmJmYUs5OHF4czVZSSIsImtpZCI6Ino0NHdNZEh1OHdLc3VtcmJmYUs5OHF4czVZSSJ9.eyJhdWQiOiJodHRwczovL3dlZ21hbnMtZXMuYXp1cmUtYXBpLm5ldCIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzEzMThkNTdmLTc1N2ItNDViMy1iMWIwLTliM2MzODQyNzc0Zi8iLCJpYXQiOjE1MTcxMzU4NDQsIm5iZiI6MTUxNzEzNTg0NCwiZXhwIjoxNTE3MTM5NzQ0LCJhaW8iOiJZMk5nWUNnTldYSnBWZFNwRjhXOWg5K1ZYem5LQkFBPSIsImFwcGlkIjoiMmZhOGY3MWYtY2VjNS00OWU5LWJkMGEtMjI3ODBkYzI2YTliIiwiYXBwaWRhY3IiOiIxIiwiaWRwIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMTMxOGQ1N2YtNzU3Yi00NWIzLWIxYjAtOWIzYzM4NDI3NzRmLyIsIm9pZCI6ImY0NTIwYmRmLTc1NWItNGY5Yi1iNWJkLTI4NGJiYTI2MTEwOSIsInN1YiI6ImY0NTIwYmRmLTc1NWItNGY5Yi1iNWJkLTI4NGJiYTI2MTEwOSIsInRpZCI6IjEzMThkNTdmLTc1N2ItNDViMy1iMWIwLTliM2MzODQyNzc0ZiIsInV0aSI6IkpIVGdiX3NNYVU2QlpWOEZVdmdSQUEiLCJ2ZXIiOiIxLjAifQ.lB8nrIp3jn9zMM8ii7QB5M9PdxaHO5fKlDRDRQpXV07D_GBj3pEa1utccG_dOwgTcRrEbzFocgpz4lkJjXd3KlQmhZRgbnp6YG2umCDUCbLjHogl0tBRHDsEJQHdNZoiLpsblqZl7jtM0X-tUQWF_AIayCx8Abw8GiYJdVrrPSvSeQuO1dc2-JIfnQ733utTRbgVMYJc6F2OAqzW0bMq4Osr5bbU4pjPSRxf_VANs0nCtyIxN8HXbIeC9sUH90tl7Go1h05ipk__xa3PeDzyczhCSDZo8JyqGTIw3hM4mgXmIyKwX4jB6xa-EixK11MeQhgPWvk3CVfqS13nh4I-Mg"
+  const authorization = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ino0NHdNZEh1OHdLc3VtcmJmYUs5OHF4czVZSSIsImtpZCI6Ino0NHdNZEh1OHdLc3VtcmJmYUs5OHF4czVZSSJ9.eyJhdWQiOiJodHRwczovL3dlZ21hbnMtZXMuYXp1cmUtYXBpLm5ldCIsImlzcyI6Imh0dHBzOi8vc3RzLndpbmRvd3MubmV0LzEzMThkNTdmLTc1N2ItNDViMy1iMWIwLTliM2MzODQyNzc0Zi8iLCJpYXQiOjE1MTcxMzc0MzAsIm5iZiI6MTUxNzEzNzQzMCwiZXhwIjoxNTE3MTQxMzMwLCJhaW8iOiJZMk5nWUREaWt2OGkzWG5nNlVUbjUxbXNxeGZsQXdBPSIsImFwcGlkIjoiMmZhOGY3MWYtY2VjNS00OWU5LWJkMGEtMjI3ODBkYzI2YTliIiwiYXBwaWRhY3IiOiIxIiwiaWRwIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMTMxOGQ1N2YtNzU3Yi00NWIzLWIxYjAtOWIzYzM4NDI3NzRmLyIsIm9pZCI6ImY0NTIwYmRmLTc1NWItNGY5Yi1iNWJkLTI4NGJiYTI2MTEwOSIsInN1YiI6ImY0NTIwYmRmLTc1NWItNGY5Yi1iNWJkLTI4NGJiYTI2MTEwOSIsInRpZCI6IjEzMThkNTdmLTc1N2ItNDViMy1iMWIwLTliM2MzODQyNzc0ZiIsInV0aSI6InFEMXJiVFpOLUVtY2xOa2dnckVUQUEiLCJ2ZXIiOiIxLjAifQ.BdlD6L0kepQOStd6AykWarlBQUFT4bGG3FASwofXqL6TPv7Ias6BoF3XE_lvK2OJjVx9oazW3nEPsmeyAiPOSnpR_g1P7XH_CrAZQwhei1JOGXAZIejKJuIMfQb1H8IeIgunHt28EjJmc78q2ET96JoA6T7MVMACffy56oxT8oL0deo_wLflAvP-skmXgZuG8CJAlO0pP_EI7IojqYf2LzbC6kIl0ReNj6oiiprcAoicmxiWKGLyyic6akL0GuDYV4831OCLyAMFvv-HQglFLMd_tU9nhJOgVYptoYrTqwP15zFcSq8R_s-7xCP-PPzOvc1lrvXNnta6nJyksatMPg"
   const key = "658b9235dc6b4d32a1349ec6e40536aa"
   const app = new App({request, response});
   console.log('Request headers: ' + JSON.stringify(request.headers));
   console.log('Request body: ' + JSON.stringify(request.body));
 
+  function findProductAvailibilityByStore(ItemNumber, storeId, i){
+    return axios.get('https://wegmans-es.azure-api.net/productpublic/productavailability/'+ItemNumber+'/'+storeId, {
+            "headers": {
+          "authorization": authorization,
+          "product-subscription-key": key,
+          "cache-control": "no-cache",
+          "postman-token": "82bdfc5d-4f66-a3b1-64ad-cdd10caa6ee8"
+        }
+        }).then((response) =>{
+          return [response["data"][0]["IsAvailable"], i]
+        }).catch((error) =>{
+            console.log(error)
+        })
+  }
 
   function findProductFromAPI(productName){
     return axios.get('https://wegmans-es.azure-api.net/productpublic/products/search?criteria=' + productName, {
@@ -32,6 +46,7 @@ exports.wegmans = functions.https.onRequest((request, response) => {
           let result = response.data["Results"]
           for (var i = 0; i < 4; i++) {
             // console.log(result[i])
+
             itemss.push([result[i]["ItemNumber"], result[i]["Description"]])
           }
           return itemss
@@ -108,7 +123,7 @@ exports.wegmans = functions.https.onRequest((request, response) => {
                 }
                 richResponse.addSimpleResponse(simpleResponse1);
                 richResponse.addSimpleResponse(simpleResponse2);
-                richResponse.addSuggestions(['I want some \"tomatoes\"','search for \"coca-cola\"'])
+                richResponse.addSuggestions(['I want some tomatoes','search for coca-cola'])
                 app.ask(richResponse)
 
 
@@ -124,19 +139,39 @@ exports.wegmans = functions.https.onRequest((request, response) => {
         }
     };
     //TODOOOOOO
+
+    function findImageFromProduct(product){
+        url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyAhIedchF_DyB-Zk8HUbjEtfBRdVUdXJA4&cx=018005371202290893977:rleijs8aesm&q=" + product[1] + "&searchType=image&fileType=jpg&imgSize=large&alt=json"     
+        return axios.get(url).then((response) => {
+            return response.data
+        }).catch((error) => {
+            console.log(error)
+        })
+    }
+
+
+
     function findProduct(app){
-      Promise.all([findProductFromAPI(app.getArgument(product))]).then((a)=>{
+      Promise.all([findProductFromAPI(app.getArgument("product"))]).then((a)=>{
           //This is the array of product id, product name
-          a[0]
-          //1. Find Avalibility
-          for(var i = 0; i < a[0].length; i++){
-            Promise.all([findProductAvailibilityByStore(a[0][i][0], app.userStorage.StoreNumber)]).then((a2)=>{
-              a[0][i].push(a2[0])
+          let temp = a[0]
+          let temp2 = {
+            temp[0][0]: [temp[0,1]],
+            temp[1][0]: [temp[0,1]],
+            temp[2][0]: [temp[0,1]],
+            temp[3][0]: [temp[0,1]]
+          }
+          app.ask("I found this! " + temp[0][1])
+          for(var i = 0; i < temp.length; i ++ ){
+            Promise.all([findImageFromProduct(temp[i])]).then((a)=>{
+              //Here are your urls for image
+              //a[0]
+              console.log(a[0].items[0].url)
             })
           }
-          //2. Find Price
-
+          url = "https://www.googleapis.com/customsearch/v1?key=AIzaSyAhIedchF_DyB-Zk8HUbjEtfBRdVUdXJA4&cx=018005371202290893977:rleijs8aesm&q=<SEARCH_QUERY>&searchType=image&fileType=jpg&imgSize=small&alt=json"
       }).catch((error)=>{
+        console.log(error)
         app.tell("Error")
       })
     }
