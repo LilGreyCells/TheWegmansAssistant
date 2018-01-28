@@ -58,12 +58,13 @@ exports.wegmans = functions.https.onRequest((request, response) => {
     // let longitude = app.getArgument(request.body.LONGITUDE);
     // const permission = app.SupportedPermissions.DEVICE_PRECISE_LOCATION;
     // app.askForPermission("To find the closest Wegmans", permission);
-    app.ask("Welcome to Wegmans! What can I help you with?");
+    // app.ask("Welcome to Wegmans! What can I help you with?");
+    app.askForPermission('Welcome to Wegmans. To locate you', app.SupportedPermissions.DEVICE_PRECISE_LOCATION);
   }
 
-  const requestPermission = (app) => {
-      app.askForPermission('To locate you', app.SupportedPermissions.DEVICE_PRECISE_LOCATION);
-    };
+  // const requestPermission = (app) => {
+  //     app.askForPermission('To locate you', app.SupportedPermissions.DEVICE_PRECISE_LOCATION);
+  //   };
 
   const userInfo = (app) => {
         if (app.isPermissionGranted()) {
@@ -87,7 +88,7 @@ exports.wegmans = functions.https.onRequest((request, response) => {
   // d. build an action map, which maps intent names to functions
   let actionMap = new Map();
   actionMap.set(NAME_ACTION, welcome);
-  actionMap.set("permission_action", requestPermission)
+  // actionMap.set("permission_action", requestPermission)
   actionMap.set("user_info", userInfo)
   
 
