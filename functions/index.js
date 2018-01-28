@@ -45,7 +45,7 @@ exports.wegmans = functions.https.onRequest((request, response) => {
             }
             let min_store = data[min_i]
             let min2_store = data[min_i2]
-            return "Welcome to " + min_store["Name"] + " " + min_store["Location"]["LocationType"]
+            return ["Welcome to " + min_store["Name"] + " " + min_store["Location"]["LocationType"], min_store["StoreNumber"]]
             // return [min_store, min2_store]
           }).catch((error) =>{
               console.log(error)
@@ -73,7 +73,8 @@ exports.wegmans = functions.https.onRequest((request, response) => {
               getNearestWegmans(coordinates.latitude, coordinates.longitude),
             ]).then((a) => {
                 console.log(a)
-                app.ask(a[0]+ ". How can I help?")
+                app.userStorage.StoreNumber = a[0][1]
+                app.ask(a[0][0]+ ". How can I help?")
             }).catch((e) =>{
                 app.tell("Error!")
                 console.log(e)
