@@ -181,19 +181,20 @@ exports.wegmans = functions.https.onRequest((request, response) => {
       })
     }
 
-    function findPrice(productId, storeNumber) {
-      // body...
-      let url = "https://wegmans-es.azure-api.net/pricepublic/pricing/current_prices/"+ productId+"/"+storeNumber
-      console.log("URL" + url)
-      let headers= {
-          "authorization": authorization,
-          "Price-Subscription-Key": key
-      }
-      return axios.get(url, headers).then((response)=>{
-        return response[0]["Display"]
-      }).catch((error)=>{
-        console.log(error)
-      })
+    function findPrice(productId, StoreNumber){
+        return axios.get('https://wegmans-es.azure-api.net/pricepublic/pricing/current_prices/'+productId+'/'+StoreNumber,
+        {
+            "headers": {
+                "authorization": authorization,
+                "price-subscription-key": key,
+                "cache-control": "no-cache",
+                "postman-token": "82bdfc5d-4f66-a3b1-64ad-cdd10caa6ee8"
+              }
+        }).then((response) =>{
+            return response["data"][0]["Display"]
+        }).catch((error) =>{
+            console.log(error)
+        })
     }
 
     function optionHandler(app){
@@ -208,11 +209,12 @@ exports.wegmans = functions.https.onRequest((request, response) => {
      //   }
      // }
      Promise.all([findProductAvailibilityByStore(param, app.userStorage.StoreNumber), findPrice(param, app.userStorage.StoreNumber)]).then((a)=>{
-        if(a[0][0] == false){
-          app.tell("This Product is not available in the store")
+        console.log(a)
+        if(a[0] == false){
+          app.ask("This Product is not available in the store")
         }
         else{
-          app.tell("This Product is available at the price of" + a[0][1])
+          app.ask("This Product is available at the price of" + a[1])
         }
      })
       // if (!param) {
