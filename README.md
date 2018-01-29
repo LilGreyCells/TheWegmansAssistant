@@ -1,5 +1,5 @@
 # TheWegmansAssistant
-The Wegmans Assistant
+Enhancing the engagement of Wegmans customers by providing a smart and engaging virtual assistant.
 
 ## What it does
 The app provides an interactive and personalised smart assistant to enhance the Wegmans shopping and viewing experience.
